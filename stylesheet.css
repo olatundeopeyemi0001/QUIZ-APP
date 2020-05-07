@@ -1,0 +1,177 @@
+body {
+  font-family: "Avenir Next";
+
+  
+  max-height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  background-color: #26d0c9;
+  color: #fff;
+  height: 90px;
+  }
+
+.header-logo {
+  float: left;
+  font-size: 36px;
+  padding: 20px 40px;
+}
+
+.header-list li {
+  float: left;
+  padding: 33px 20px;
+}
+
+p {
+  font-size: 30px;
+  font-weight: solid;
+  font-family: auto;
+  color : red;
+
+}
+
+main {
+    /* Remove CSS for background-color 
+  background-color */
+  background-image: url('1.jpg'); 
+  opacity: ;
+  height: 600px;
+  border-spacing: 10px;
+  /* Change the top & bottom padding to 100px, and left & right padding to 80px */
+  
+  
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.box {
+  --hue: var(--hue-neutral);
+  padding: 020px;
+  margin: auto;
+  padding-left: 80px;
+  float : center;
+  position: center;
+  display:  ;
+  width: 60%;
+  height: 350px;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+}
+
+.container {
+  width: 800px;
+  border: 3px solid lightblue;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0 0 10px 2px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+/*making the buttons in a grid format*/
+.btn-grid {
+  display: block;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* making a vertical list of buutons*/
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+.btn {
+  --hue: var(--hue-neutral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+}
+
+.btn:hover {
+  border-color: black;
+}
+
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: #ffffff;
+}
+
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
+.start-btn, .next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+/* Change the font-size of <h1> tags within copy-container */
+
+
+/* Change the font-size of <h2> tags within copy-container */
+
+
+/* Change the color of <span> tags within copy-container */
+
+
+.footer {
+  background-color: #2f5167;
+  color: #fff;
+  height: 180px;
+  padding: 40px;
+}
+
+.footer-logo {
+  float: left;
+  font-size: 32px;
+}
+
+.footer-list {
+  float: right;
+}
+
+.footer-list li {
+  padding-bottom: 20px;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded;
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
