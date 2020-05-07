@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz app (covid-19) </title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src=""></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-logo">COVID-19 Update</div>
+      <div class="header-list">
+        <ul> 
+          <li><a href="#">Home</a></li>
+          <li> <a href="http://arcg.is/1KXefn" target="_blank">Dashboard</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="">
+      <main>
+      
+        <div>
+          
+        </div>
+      <div class="card">
+    <h2> To view the current situaton of the covid 19 in nigeria kindly click the link here
+       <a href="http://arcg.is/1KXefn" target="_blank"> The Nigeria Covid 19 Dashboard</a><br>
+       <p> <span style="color: blue">How much do you actually know about</span> <span style="color:red">CoronaVirus?</span></p>
+    </h2>
+  </div>
+
+  <div class="box">
+   <div class="container">
+    <div id="question-container" class="hide">
+      <div id="question">Question</div>
+      <div id="answer-buttons" class="btn-grid">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
+      </div>
+    </div>
+    <div class="controls">
+     <p id ="" style="font-size:14px; color:purple; font-family: sans-serif; "> Welcome to the Coronavirus Quiz.
+The outbreak of the virus has upended life and business in unimaginable ways. You must have already received a torrent of news and explainers about the virus and its effects. But how familiar are you with the virus?
+
+Here is a chance to test your knowledge. Questions are multiple-choice,Good luck! Stay safe.</p>
+      <button id="start-btn" class="start-btn btn">Start</button>
+      <button id="next-btn" class="next-btn btn hide">Next</button>
+    </div>
+  </div>
+</div>
+    </main>
+      </div>
+
+
+      
+      <!-- Add a <div> tag with the "contents" class -->
+      
+      <!-- Add a <div> tag with the "contact-form" class -->
+      
+      
+    </div>
+
+    <div class="footer">
+      <div class="footer-logo">     NCDC Toll-free Call Centre
+                          080097000010</div>
+      <div class="footer-list">
+        <ul>
+          <li>About</li>
+          <li>Centers</li>
+          <li>Contact us</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script type="text/javascript">
+  const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
+//create a text for startup
+let shuffledQuestions, currentQuestionIndex
+
+//event listeners
+
+startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+  currentQuestionIndex++
+  setNextQuestion()
+})
+
+function startGame() {
+  startButton.classList.add('hide')
+  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0
+  questionContainerElement.classList.remove('hide')
+  setNextQuestion()
+}
+
+function setNextQuestion() {
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
+function showQuestion(question) {
+  questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function resetState() {
+  clearStatusClass(document.body)
+  nextButton.classList.add('hide')
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+  }
+}
+
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct')
+  } else {
+    element.classList.add('wrong')
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
+}
+
+//showing results
+
+    //  Quizquestions
+const questions = [
+  {
+    question: "Ancient Greeks called it στέφανος, that can be translated as stéfanos. Ancient romans called it by a name which means crown. The X civica, or civic crown, was a garland of oak leaves granted by the Senate to someone whom they considered had saved the lives of fellow Roman citizens in battle. The civic crown also appears on the reverse of Augustan medallions. Its presence was a means of negotiating Augustus's unprecedented position. The origin of what word, which also refers to the outer atmosphere of the sun, are we describing here ?",
+    answers: [
+      { text: "A) Corona", correct: true },
+      { text: "B) Wreath", correct: false },
+      { text: "C) Tiara", correct: false},
+      { text: "D) Aureole", correct: false},
+    ]
+  },
+  {
+    question: "While most companies are floundering, the shares of Zoom a company founded by Eric Yuan, has doubled over the last one month. So what does Zoom specialize in?",
+    answers: [
+      { text: 'A) Messenger and Meetings app', correct: true },
+      { text: 'B) Mail App', correct: false },
+      { text: 'C) Notes Taking App', correct: false },
+      { text: 'D) VPN App', correct: false }
+    ]
+  },
+  {
+    question: "These are a series of Hotels opened up in collaboration with the Pestana group. They are present in Lisbon, Marakkech and Madeira. Recently as a temporary measure to counter Coronavirus the owner of these hotels has agreed to convert them into Hospitals to allow for isolation and treatment of patients. Who is this benevolent owner?",
+    answers: [
+      { text: 'A) Lionel Messi', correct: false },
+      { text: 'B) Cristiano Ronaldo', correct: true },
+      { text: 'C) Paul Pogba', correct: false },
+      { text: 'D) David Beckham', correct: false }
+    ]
+  },
+   {
+    question: "Which billionaire has pledged to donate two million protective masks for distribution across Europe, with a first consignment arriving in Belgium late on Friday. He has also said he will donate 500,000 coronavirus testing kits and one million masks to the United States, while urging international cooperation to fight the health crisis.",
+    answers: [
+      { text: 'A) Jack MA', correct: true },
+      { text: 'B) Poly Ma', correct: false },
+      { text: 'C) Otedola', correct: false },
+      { text: 'D) Dangote', correct: false }
+    ]
+  },
+  {
+    question: "This was a movie based on Richard Prestons 1992, New Yorker nonfiction article 'Crisis in the Hot Zone'. Its lead star Dustin Hoffmann had insisted that poet Maya Angelou be used to make the ending less depressing. (Little of her work is said to have been used). The movie was so effective that at an afterparty at Chasen's, one guest was overheard to remark: After seeing a movie like this, you kinda don't want to eat something that somebody else has touched. Which Movie?",
+    answers: [
+      { text: 'A) Contagion', correct: true },
+      { text: 'B) Outbreak', correct: false },
+      { text: 'C) Ebola', correct: false},
+      { text: 'D Pandemic', correct: false}
+    ]
+  }
+]
+
+</script> -->
